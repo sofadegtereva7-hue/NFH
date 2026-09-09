@@ -1,0 +1,7 @@
+name = "nfh"
+main = "worker.js"
+compatibility_date = "2026-09-09"
+
+[[kv_namespaces]]
+binding = "POSTS"
+id = "c51d70caf6644b96860df9dda84c58ae"
