@@ -1,4 +1,4 @@
-const MAX_POSTS = 200;
+const MAX_POSTS = 1000;
 
 function headers() {
   return {
