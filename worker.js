@@ -157,6 +157,10 @@ export default {
       )
         .trim()
         .slice(0, 2000);
+  
+  const replyTo = data.replyTo
+  ? String(data.replyTo).trim().slice(0, 100)
+  : null;
 
       if (!author || !message) {
         return response({
