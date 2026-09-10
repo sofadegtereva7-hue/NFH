@@ -37,7 +37,7 @@ async function savePost(env, author, message, replyTo = null) {
   id: crypto.randomUUID(),
   author: author,
   message: message,
-  replyTo: null,
+  replyTo: replyTo,
   createdAt: new Date().toISOString()
 };
 
