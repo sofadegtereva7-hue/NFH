@@ -158,6 +158,10 @@ export default {
       )
         .trim()
         .slice(0, 2000);
+
+const replyTo = url.searchParams.get("replyTo")
+  ? String(url.searchParams.get("replyTo")).trim().slice(0, 100)
+  : null;
   
   const replyTo = data.replyTo
   ? String(data.replyTo).trim().slice(0, 100)
@@ -172,10 +176,11 @@ export default {
       }
 
       const post = await savePost(
-        env,
-        author,
-        message
-      );
+  env,
+  author,
+  message,
+  replyTo
+);
 
       return response({
         ok: true,
