@@ -30,7 +30,7 @@ async function getPosts(env) {
   }
 }
 
-async function savePost(env, author, message) {
+async function savePost(env, author, message, replyTo = null) {
   const posts = await getPosts(env);
 
   const post = {
