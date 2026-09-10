@@ -34,10 +34,11 @@ async function savePost(env, author, message) {
   const posts = await getPosts(env);
 
   const post = {
-    author: author,
-    message: message,
-    createdAt: new Date().toISOString()
-  };
+  id: crypto.randomUUID(),
+  author: author,
+  message: message,
+  createdAt: new Date().toISOString()
+};
 
   posts.unshift(post);
 
