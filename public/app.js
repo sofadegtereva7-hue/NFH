@@ -34,16 +34,40 @@ function renderPosts(posts) {
     return;
   }
 
-  messagesContainer.innerHTML = posts.map(post => `
-    <article class="message">
-      <div>
-        <span class="message-author">${escapeHtml(post.author)}</span>
-        <span class="message-time">${escapeHtml(formatDate(post.createdAt))}</span>
-      </div>
+  messagesContainer.innerHTML = posts.map(post => {
+    let replyInfo = "";
 
-      <div class="message-text">${escapeHtml(post.message)}</div>
-    </article>
-  `).join("");
+    if (post.replyTo) {
+      const repliedPost = posts.find(item => item.id === post.replyTo);
+
+      if (repliedPost) {
+        replyInfo = `
+          <div class="message-reply">
+            ↩ reply to <span>${escapeHtml(repliedPost.author)}</span>
+          </div>
+        `;
+      } else {
+        replyInfo = `
+          <div class="message-reply">
+            ↩ reply to another message
+          </div>
+        `;
+      }
+    }
+
+    return `
+      <article class="message">
+        <div>
+          <span class="message-author">${escapeHtml(post.author)}</span>
+          <span class="message-time">${escapeHtml(formatDate(post.createdAt))}</span>
+        </div>
+
+        ${replyInfo}
+
+        <div class="message-text">${escapeHtml(post.message)}</div>
+      </article>
+    `;
+  }).join("");
 }
 
 
