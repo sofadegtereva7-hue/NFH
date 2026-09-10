@@ -1,4 +1,4 @@
-const API_URL = "https://nfh.sofadegtereva7.workers.dev";
+const API_URL = "https://nfh.freeevolution.workers.dev";
 
 const messagesContainer = document.getElementById("messages");
 const authorInput = document.getElementById("author");
