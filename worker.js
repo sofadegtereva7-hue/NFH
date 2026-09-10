@@ -124,10 +124,11 @@ export default {
       }
 
       const post = await savePost(
-        env,
-        author,
-        message
-      );
+  env,
+  author,
+  message,
+  replyTo
+);
 
       return response({
         ok: true,
